@@ -1,53 +1,53 @@
-﻿// Вид 1 (тот что ничего не принимает и ничего не возвращает)
-// void Method1() //void - ключевое слово (означает не возвращаемый метод)
+﻿// // Вид 1 (тот что ничего не принимает и ничего не возвращает)
+// // void Method1() //void - ключевое слово (означает не возвращаемый метод)
+// // {
+// //     Console.WriteLine("Автор...");
+// // }
+// //Method1();//вызывается обращением к имени метода и пустыми скобочками
+// //Method1; // !!! это ошибочное написание
+
+
+
+
+
+
+
+
+
+
+// // Вид 2 (тот что ничего не возвращают, но принимают какие-либо аргументы)
+// // void Method2(string a)
+// // {
+// //     Console.WriteLine(a);
+// // }
+// // Method2("Текст сообщения");
+
+// // void Method21(string a, int count)
+// // {
+// //     int i = 0;
+// //     while (i < count)
+// //     {
+// //         Console.WriteLine(a);
+// //         i++;
+// //     }
+// // }
+// //Method21("Text", 4); //вариант первый метода 2.1
+// //Method21(count: 4, a: "New text"); // явное указание
+
+
+
+
+
+
+
+// // Вид 3 (что-то возвращают, но ничего не принимают)
+
+// int Method3()
 // {
-//     Console.WriteLine("Автор...");
+//     return DateTime.Now.Year;
 // }
-//Method1();//вызывается обращением к имени метода и пустыми скобочками
-//Method1; // !!! это ошибочное написание
-
-
-
-
-
-
-
-
-
-
-// Вид 2 (тот что ничего не возвращают, но принимают какие-либо аргументы)
-// void Method2(string a)
-// {
-//     Console.WriteLine(a);
-// }
-// Method2("Текст сообщения");
-
-// void Method21(string a, int count)
-// {
-//     int i = 0;
-//     while (i < count)
-//     {
-//         Console.WriteLine(a);
-//         i++;
-//     }
-// }
-//Method21("Text", 4); //вариант первый метода 2.1
-//Method21(count: 4, a: "New text"); // явное указание
-
-
-
-
-
-
-
-// Вид 3 (что-то возвращают, но ничего не принимают)
-
-int Method3()
-{
-    return DateTime.Now.Year;
-}
-int a = Method3();
-//Console.WriteLine(a);
+// int a = Method3();
+// //Console.WriteLine(a);
 
 
 
@@ -59,78 +59,120 @@ int a = Method3();
 
 
 
-// Вид 4 (что-то принимают и что-то возвращают)
+// // Вид 4 (что-то принимают и что-то возвращают)
+
+// // string Method4(int count, string text)
+// // {
+// //     int i = 0;
+// //     string result = String.Empty;
+// //     while (i < count)
+// //     {
+// //         result = result + text;
+// //         i++;
+// //     }
+// //     return result;
+// // }
 
 // string Method4(int count, string text)
 // {
-//     int i = 0;
 //     string result = String.Empty;
-//     while (i < count)
+//     for (int i = 0; i < count; i++)
 //     {
 //         result = result + text;
-//         i++;
 //     }
 //     return result;
 // }
 
-string Method4(int count, string text)
-{
-    string result = String.Empty;
-    for (int i = 0; i < count; i++)
-    {
-        result = result + text;
-    }
-    return result;
-}
+// string res = Method4(1, "Хвала Аллаху, Господу миров! ");
+// //Console.WriteLine(res);
 
-string res = Method4(1, "Хвала Аллаху, Господу миров! ");
-//Console.WriteLine(res);
+// //Таблица умножения до 10
+// // for (int i = 2; i <= 10; i++)
+// // {
+// //     for (int j = 2; j <= 10; j++)
+// //     {
+// //         Console.WriteLine($"{i} x {j} = {i * j}");
+// //     }
+// //     Console.WriteLine();
+// // }
 
-//Таблица умножения до 10
-// for (int i = 2; i <= 10; i++)
+// //===== Работа с текстом
+// // Дан текст. В тексте нужно все пробелы заменить черточками,
+// // маленькие буквы "к" заменить большими "К",
+// // а большие "С" заменить маленькими "с".
+
+// //Ясна ли задача?
+
+// string text = "- Я думаю, - Сказал князь, улыбаясь, - что, "
+//             + "ежели бы вас послали вместо нашего милого Винценгероде,"
+//             + "вы бы взяли приступом согласие прусского короля. "
+//             + "Вы так красноречивы. Вы дадите мне чаю?";
+
+
+// string Replace(string text, char oldValue, char newValue)
 // {
-//     for (int j = 2; j <= 10; j++)
+//     string result = String.Empty; //инициализация пустой строки
+
+//     int length = text.Length;
+//     for (int i = 0; i < length; i++)
 //     {
-//         Console.WriteLine($"{i} x {j} = {i * j}");
+//         if (text[i] == oldValue) result = result + $"{newValue}";
+//         else result = result + $"{text[i]}";
 //     }
-//     Console.WriteLine();
+
+//     return result;
 // }
 
-//===== Работа с текстом
-// Дан текст. В тексте нужно все пробелы заменить черточками,
-// маленькие буквы "к" заменить большими "К",
-// а большие "С" заменить маленькими "с".
+// string newText = Replace(text, ' ', '|');
+// Console.WriteLine(newText);
+// Console.WriteLine();
 
-//Ясна ли задача?
+// newText = Replace(text, 'к', 'К');
+// Console.WriteLine(newText);
+// Console.WriteLine();
 
-string text = "- Я думаю, - Сказал князь, улыбаясь, - что, "
-            + "ежели бы вас послали вместо нашего милого Винценгероде,"
-            + "вы бы взяли приступом согласие прусского короля. "
-            + "Вы так красноречивы. Вы дадите мне чаю?";
+// newText = Replace(text, 'С', 'с');
+// Console.WriteLine(newText);
+// Console.WriteLine();
 
+//Задача на выстраивание элементов массива от меньшего к большему
 
-string Replace(string text, char oldValue, char newValue)
+﻿int[] arr = { 1, 5, 4, 3, 2, 6, 7, 1, 1 };
+
+void PrintArray(int[] array)
 {
-    string result = String.Empty; //инициализация пустой строки
+    int count = array.Length;
 
-    int length = text.Length;
-    for (int i = 0; i < length; i++)
+    for (int i = 0; i < count; i++)
     {
-        if (text[i] == oldValue) result = result + $"{newValue}";
-        else result = result + $"{text[i]}";
+        Console.Write($"{array[i]} ");
     }
-
-    return result;
+    Console.WriteLine();
 }
 
-string newText = Replace(text, ' ', '|');
-Console.WriteLine(newText);
-Console.WriteLine();
+void SelectionSort(int[] array) // выводит на консоль перечень данных массива
+{
+    for (int i = 0; i < array.Length - 1; i++)
+    {
+        int minPosition = i;
 
-newText = Replace(text, 'к', 'К');
-Console.WriteLine(newText);
-Console.WriteLine();
+        for (int j = i + 1; j < array.Length; j++)
+        {
+            if (array[j] < array[minPosition]) minPosition = j;
 
-newText = Replace(text, 'С', 'с');
-Console.WriteLine(newText);
-Console.WriteLine();
+
+
+        }
+
+        int temporary = array[i];
+        array[i] = array[minPosition];
+        array[minPosition] = temporary;
+    }
+}
+
+PrintArray(arr);
+SelectionSort(arr);
+
+PrintArray(arr);
+
+
